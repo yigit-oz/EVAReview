@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVAReview - Surgical Planning Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 1em 0 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+    }
+
+    section {
+      margin-bottom: 3em;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    input, textarea {
+      padding: 0.5em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 0.7em;
+      font-size: 1em;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0055a5;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EVAReview</h1>
+    <nav>
+      <ul>
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#tests">Test Results</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li> <!-- ✅ Added Login Page Link -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Introduction</h2>
+      <p>
+        EVAReview is a utility program designed to assist in surgical planning and decision-making. It enhances healthcare quality through image segmentation and AI-based decision support, along with patient data management and secure communication tools.
+      </p>
+    </section>
+
+    <section id="architecture">
+      <h2>System Architecture</h2>
+      <p>
+        EVAReview uses a U-Net convolutional neural network for biomedical image segmentation. The model is trained in Python with PyTorch and runs in the Node.js backend. Segmentation results are returned as JSON and displayed in the frontend.
+      </p>
+    </section>
+
+    <section id="tests">
+      <h2>Test Results</h2>
+      <ul>
+        <li><strong>TC-UM-01:</strong> ✅ User registration successful</li>
+        <li><strong>TC-UM-02:</strong> ✅ Handles invalid entries</li>
+        <li><strong>TC-PM-01:</strong> ✅ Add patients successfully</li>
+        <li><strong>TC-CO-02:</strong> ❌ Annotation save error</li>
+        <!-- More test results will be added -->
+      </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research and Background</h2>
+      <p>
+        Surgical planning traditionally relies on manual interpretation. EVAReview introduces AI into the process, increasing accuracy and improving pre-operative decision making.
+      </p>
+    </section>
+
+    <section id="team">
+      <h2>Team</h2>
+      <ul>
+        <li>Batuhan İşcan</li>
+        <li>Yiğit Özarslan</li>
+        <li>Ozan Özkök</li>
+      </ul>
+      <p>
+        Project Repository: <a href="https://github.com/PelinalWS/CMPE_491" target="_blank">GitHub Link</a>
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EVAReview Project</p>
+  </footer>
+</body>
+</html>
