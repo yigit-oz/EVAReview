@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Activity Logs - EVAReview</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 2em;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    .filters {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin-bottom: 1em;
+    }
+
+    input, select {
+      padding: 0.6em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+
+    th, td {
+      padding: 0.8em;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #e9f0f8;
+    }
+
+    .back-link {
+      margin-bottom: 1em;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Activity Logs</h1>
+  </header>
+
+  <div class="container">
+    <div class="back-link">
+      <a href="dashboard.html">← Back to Dashboard</a>
+    </div>
+
+    <h2>Filter Logs</h2>
+    <div class="filters">
+      <input type="date" id="filterDate" />
+      <select id="filterUser">
+        <option value="">All Users</option>
+        <option value="Dr. Özarslan">Dr. Özarslan</option>
+        <option value="Dr. İşcan">Dr. İşcan</option>
+        <option value="Dr. Özkök">Dr. Özkök</option>
+      </select>
+    </div>
+
+    <table id="logTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>User</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Logs will be injected here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const logs = [
+      { date: "2025-06-18", user: "Dr. Özarslan", action: "Logged in" },
+      { date: "2025-06-18", user: "Dr. İşcan", action: "Viewed patient list" },
+      { date: "2025-06-19", user: "Dr. Özkök", action: "Added new annotation" },
+      { date: "2025-06-19", user: "Dr. Özarslan", action: "Exported segmentation result" },
+      { date: "2025-06-20", user: "Dr. İşcan", action: "Deleted patient record" }
+    ];
+
+    const tbody = document.querySelector("#logTable tbody");
+    const filterDate = document.getElementById("filterDate");
+    const filterUser = document.getElementById("filterUser");
+
+    function renderLogs() {
+      tbody.innerHTML = "";
+      const filtered = logs.filter(log => {
+        const matchesDate = !filterDate.value || log.date === filterDate.value;
+        const matchesUser = !filterUser.value || log.user === filterUser.value;
+        return matchesDate && matchesUser;
+      });
+
+      filtered.forEach(log => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${log.date}</td><td>${log.user}</td><td>${log.action}</td>`;
+        tbody.appendChild(row);
+      });
+    }
+
+    filterDate.addEventListener("change", renderLogs);
+    filterUser.addEventListener("change", renderLogs);
+
+    // Initial load
+    renderLogs();
+  </script>
+</body>
+</html>

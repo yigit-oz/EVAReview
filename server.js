@@ -9,7 +9,7 @@ app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
   // Simulate a simple check
-  if (email === 'admin@example.com' && password === 'test123') {
+  if (email === 'admin@test.com' && password === '123') {
     res.redirect('/dashboard.html');
   } else {
     res.send('<h2>Login Failed</h2><p>Invalid email or password.</p><a href="login.html">← Try again</a>');

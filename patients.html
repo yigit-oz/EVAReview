@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Patients - EVAReview</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2em;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 2em;
+    }
+
+    input {
+      padding: 0.6em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.7em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    button:hover {
+      background-color: #0055a5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 0.8em;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e9f0f8;
+    }
+
+    .back-link {
+      margin-top: 1em;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manage Patients</h1>
+  </header>
+
+  <div class="container">
+    <div class="back-link">
+      <a href="dashboard.html">← Back to Dashboard</a>
+    </div>
+
+    <h2>Add New Patient</h2>
+    <form id="patientForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="text" name="id" placeholder="Patient ID" required />
+      <input type="date" name="dob" required />
+      <input type="text" name="condition" placeholder="Condition / Note" />
+      <button type="submit">Add Patient</button>
+    </form>
+
+    <h2>Patient List</h2>
+    <table id="patientTable">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Name</th>
+          <th>DOB</th>
+          <th>Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById("patientForm");
+    const tableBody = document.querySelector("#patientTable tbody");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = form.name.value;
+      const id = form.id.value;
+      const dob = form.dob.value;
+      const condition = form.condition.value;
+
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${id}</td>
+        <td>${name}</td>
+        <td>${dob}</td>
+        <td>${condition}</td>
+      `;
+      tableBody.appendChild(newRow);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
