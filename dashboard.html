@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - EVAReview</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
+      background-color: white;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2em;
+      margin-top: 2em;
+    }
+
+    .card {
+      background-color: #e9f0f8;
+      border-radius: 8px;
+      padding: 1.5em;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .logout {
+      text-align: right;
+      margin-top: -2em;
+    }
+
+    .logout a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logout a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EVAReview Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <div class="logout">
+      <a href="index.html">← Logout</a>
+    </div>
+
+    <h2>Welcome, Dr. Smith</h2>
+    <p>Select an action below:</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <a href="patients.html">🩺 Manage Patients</a>
+      </div>
+      <div class="card">
+        <a href="annotations.html">📝 Notes & Annotations</a>
+      </div>
+      <div class="card">
+        <a href="segmentation.html">🧠 Image Segmentation</a>
+      </div>
+      <div class="card">
+        <a href="logs.html">📊 Activity Logs</a>
+      </div>
+      <div class="card">
+        <a href="contact.html">📬 Support</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
